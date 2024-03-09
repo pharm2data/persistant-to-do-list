@@ -10,12 +10,18 @@ function renderItem() {
         container.style.marginBottom = "10px"
         
         const text = document.createElement("p")
+        text.style.display = "inline"
+        text.style.marinRight = "10px"
         text.textContent = items;
 
         const button = document.createElement("button")
         button.textContent = "Delete"
+        button.onclick = () => removeItem(idx)
 
-        itemsDiv.appendChhild(text)
+        container.appendChild(text)
+        container.appendChild(button)
+
+        itemsDiv.appendChild(container)
     }
 }
 
@@ -25,4 +31,4 @@ function saveItems() {}
 
 function addItem() {}
 
-function removeItem() {}
+function removeItem(idx) {}
