@@ -1,7 +1,8 @@
 let items = [];
 
 const itemsDiv = document.getElementById("items")
-const input = document.getElementById("itemInput")
+const input = document.getElementById("itemInput"
+const storageKey = "items":
 
 function renderItem() {
     itemsDiv.innerHTML = null;
@@ -26,9 +27,16 @@ function renderItem() {
     }
 }
 
-function loadItems() {}
+function loadItems() {
+    const oldItems = localStorage.getItem(storageKey)
+    if (oldItems) items  = JSON.parse(oldItems)
+    renderItem()
+}
 
-function saveItems() {}
+function saveItems() {
+    const stringItems = JSON.stringify(items);
+    localStorage.setItem(storageKey, stringItems)
+}
 
 function addItem() {
 const value = input.value
@@ -39,9 +47,13 @@ if (!value) {
 items.push(value)
 renderItem()
 input.value = ""
+saveItems()
 }
 
 function removeItem(idx) {
     items.splice(idx, 1)
     renderItem()
+    saveItems()
 }
+
+document.addEventListener("DOMContentLoaded", loadItems)
