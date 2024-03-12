@@ -1,8 +1,8 @@
 let items = [];
 
 const itemsDiv = document.getElementById("items")
-const input = document.getElementById("itemInput"
-const storageKey = "items":
+const input = document.getElementById("itemInput")
+const storageKey = "items";
 
 function renderItem() {
     itemsDiv.innerHTML = null;
